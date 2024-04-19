@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fan Control</title>
+  <style>
+    .fan-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .fan {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background-color: #f1f1f1;
+      animation: spin linear infinite;
+    }
+
+    .fan.off {
+      animation-play-state: paused;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .blade {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 50%;
+      height: 3px;
+      background-color: #333;
+      transform-origin: left center;
+    }
+
+    .blade1 {
+      transform: rotate(0deg);
+    }
+
+    .blade2 {
+      transform: rotate(120deg);
+    }
+
+    .blade3 {
+      transform: rotate(240deg);
+    }
+
+    .controls {
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .controls h2 {
+      margin: 0;
+    }
+
+    .controls label {
+      margin-right: 5px;
+    }
+
+    .controls select {
+      margin-right: 10px;
+    }
+
+    .controls button {
+      padding: 5px 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background-color: #45a049;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      var fan = document.querySelector('.fan');
+      var powerButton = document.getElementById('power');
+
+      powerButton.addEventListener('click', function() {
+        fan.classList.toggle('off');
+      });
+    });
+  </script>
+</head>
+<body>
+  <div class="fan-container">
+    <div class="fan">
+      <div class="blade blade1"></div>
+      <div class="blade blade2"></div>
+      <div class="blade blade3"></div>
+    </div>
+    <div class="controls">
+      <h2>Fan Speed</h2>
+      <label for="speed">Speed:</label>
+      <select id="speed">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="power">On/Off</button>
+    </div>
+  </div>
+</body>
+</html>
+

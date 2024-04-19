@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .face {
+      height: 200px;
+      width: 200px;
+      position: relative;
+      background: yellow;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+    .tears {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100px;
+      height: 100px;
+    }
+    
+    .tear {
+      position: absolute;
+      width: 20px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(97, 163, 255, 0.6), rgba(24, 105, 199, 0.9));
+      border-radius: 50%;
+      transform: rotate(45deg);
+      z-index: -1;
+      animation-name: tearAnimation;
+      animation-duration: 5s;
+      animation-timing-function: ease-in-out;
+      animation-iteration-count: infinite;
+    }
+    
+    .tear.left {
+      top: -40px;
+      left: -40px;
+      animation-delay: 0s;
+    }
+    
+    .tear.right {
+      top: -40px;
+      right: -40px;
+      animation-delay: 2s;
+    }
+    
+    .eyes {
+      position: absolute;
+      top: 35%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .eye {
+      height: 40px;
+      width: 40px;
+      background: black;
+      border-radius: 50%;
+    }
+    
+    .mouth {
+      position: absolute;
+      top: 70%;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 20px;
+      width: 80px;
+      background: black;
+      border-radius: 50%;
+    }
+    
+    @keyframes tearAnimation {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(80px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="face">
+    <div class="tears">
+      <div class="tear left"></div>
+      <div class="tear right"></div>
+    </div>
+    <div class="eyes">
+      <div class="eye"></div>
+      <div class="eye"></div>
+    </div>
+    <div class="mouth"></div>
+  </div>
+</body>
+</html>
